@@ -1,0 +1,14 @@
+file1.txt:
+Mean:   2.78
+Median: 3
+Mode:   1
+SD:     1.39
+
+file2.txt:
+Mean:   323.48
+Median: 54
+Mode:   21
+SD:     881.77 (881.7746501214684)
+
+https://www.calculators.org/math/mean-median-mode.php
+https://www.standarddeviationcalculator.io
