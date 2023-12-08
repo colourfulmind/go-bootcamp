@@ -2,6 +2,7 @@
 
 Run "godoc" to access the following links.
 - [Cmd Package](http://localhost:6060/pkg/go_day_00/cmd/app)
+- [Internal Package Run](http://localhost:6060/pkg/go_day_00/internal/app/run)
 - [Internal Package Calculations](http://localhost:6060/pkg/go_day_00/internal/app/calculations)
 - [Internal Package Run](http://localhost:6060/pkg/go_day_00/internal/app/run)
 

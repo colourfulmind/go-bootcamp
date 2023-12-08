@@ -5,6 +5,7 @@ import (
 	"go_day_00/internal/app/calculations"
 )
 
+// Run runs the app
 func Run(f calculations.Flags) {
 	if !f.Mean && !f.Median && !f.Sd && !f.Mode {
 		f = SetFlags()
@@ -12,6 +13,7 @@ func Run(f calculations.Flags) {
 	f.Input()
 }
 
+// SetFlags sets default values for flags
 func SetFlags() calculations.Flags {
 	return calculations.Flags{
 		Mean:   true,
