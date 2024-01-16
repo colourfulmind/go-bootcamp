@@ -1,0 +1,42 @@
+<recipes>
+    <cake>
+        <name>Red Velvet Strawberry Cake</name>
+        <stovetime>45 min</stovetime>
+        <ingredients>
+            <item>
+                <itemname>Flour</itemname>
+                <itemcount>2</itemcount>
+                <itemunit>mugs</itemunit>
+            </item>
+            <item>
+                <itemname>Strawberries</itemname>
+                <itemcount>8</itemcount>
+            </item>
+            <item>
+                <itemname>Coffee Beans</itemname>
+                <itemcount>2.5</itemcount>
+                <itemunit>tablespoons</itemunit>
+            </item>
+            <item>
+                <itemname>Cinnamon</itemname>
+                <itemcount>1</itemcount>
+            </item>
+        </ingredients>
+    </cake>
+    <cake>
+        <name>Moonshine Muffin</name>
+        <stovetime>30 min</stovetime>
+        <ingredients>
+            <item>
+                <itemname>Brown sugar</itemname>
+                <itemcount>1</itemcount>
+                <itemunit>mug</itemunit>
+            </item>
+            <item>
+                <itemname>Blueberries</itemname>
+                <itemcount>1</itemcount>
+                <itemunit>mug</itemunit>
+            </item>
+        </ingredients>
+    </cake>
+</recipes>

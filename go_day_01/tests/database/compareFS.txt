@@ -1,0 +1,2 @@
+ADDED: /etc/systemd/system/very_important/stash_location.jpg
+REMOVED: /var/log/browser_history.txt
