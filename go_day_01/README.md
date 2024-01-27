@@ -1,4 +1,4 @@
-## Two bakeries.
+## Different formats.
 
 Run "godoc" to access the following links.
 - [Cmd Package](http://localhost:6060/pkg/go_day_01/cmd/app)
