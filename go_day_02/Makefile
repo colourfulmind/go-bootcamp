@@ -18,3 +18,5 @@ clean:
 	rm -rf $(EXEC02)/$(EXEC02)
 	rm -rf $(EXEC03)/$(EXEC03)
 	rm -rf ./tests/files/*tar.gz ./tests/*tar.gz
+
+.DEFAULT_GOAL := build
