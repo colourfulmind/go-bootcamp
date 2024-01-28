@@ -103,7 +103,7 @@ Run "godoc" to access the following links.
 - [Cmd Package](http://localhost:6060/pkg/main/myRotate/cmd/app)
 - [Internal Package Run](http://localhost:6060/pkg/main/myRotate/internal/app/run)
 - [Internal Package Calculations](http://localhost:6060/pkg/main/myRotate/internal/app/archiver)
-- 
+
 The most recent addition to the tools is the log rotation utility.
 
 "Log rotation" is a process in which the old log file is archived 
