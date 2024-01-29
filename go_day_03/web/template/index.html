@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Places</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<h5>Total: {{ .Counts }}</h5>
+<ul>
+    {{range .Places}}
+    <li>
+        <div>{{.Name}}</div>
+        <div>{{.Address}}</div>
+        <div>{{.Phone}}</div>
+    </li>
+    {{end}}
+</ul>
+
+{{ if (gt .Page 2) }}
+    <a href={{ printf "/places?page=%d" 1 }}>First</a>
+    <a href={{ printf "/places?page=%d" .PrevPage }}>Previous</a>
+{{ else if (eq .Page 2) }}
+    First <a href={{ printf "/places?page=%d" .PrevPage }}>Previous</a>
+{{ else }}
+    First Previous
+{{ end }}
+
+{{ if (lt .NextPage .LastPage) }}
+    <a href={{ printf "/places?page=%d" .NextPage }}>Next</a>
+    <a href={{ printf "/places?page=%d" .LastPage }}>Last</a>
+{{ else if (le .NextPage .LastPage) }}
+    <a href={{ printf "/places?page=%d" .NextPage }}>Next</a> Last
+{{ else }}
+    Next Last
+{{ end }}
+</body>
+</html>
