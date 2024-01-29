@@ -6,8 +6,6 @@ import (
 	"net/http"
 )
 
-//curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJKV1QifQ.DeYqCCnuM-7srwUhk2jNIBr-tCoJmqbbS3RKmC9R_lQ" -XGET "http://127.0.0.1:8888/api/recommend?lat=55.674&lon=37.666"
-
 var secretKey = []byte("21school")
 
 // TokenJSON is a struct for tokens

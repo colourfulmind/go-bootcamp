@@ -18,8 +18,9 @@ func PageError(w http.ResponseWriter, err error, page int) {
 	} else {
 		text = strconv.Itoa(page)
 	}
-	log.Println(fmt.Sprintf("Invalid 'page' value: '%v'", text))
-	http.Error(w, fmt.Sprintf("Invalid 'page' value: '%v'", text), http.StatusBadRequest)
+	errText := fmt.Sprintf("Invalid 'page' value: '%v'", text)
+	log.Println(errText)
+	http.Error(w, fmt.Sprintf(errText), http.StatusBadRequest)
 }
 
 // ResponseError outputs an error if one occurred while sending a response
