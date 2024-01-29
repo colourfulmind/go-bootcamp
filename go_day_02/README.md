@@ -5,7 +5,7 @@
 Run "godoc" to access the following links.
 - [Cmd Package](http://localhost:6060/pkg/main/myFind/cmd/app)
 - [Internal Package Run](http://localhost:6060/pkg/main/myFind/internal/app/run)
-- [Internal Package Calculations](http://localhost:6060/pkg/main/myFind/internal/app/walker)
+- [Internal Package Walker](http://localhost:6060/pkg/main/myFind/internal/app/walker)
 
 This utility replicates the functionality of the `find` command, 
 enabling users to locate entries of various types, 
@@ -43,7 +43,7 @@ avoiding runtime errors by omitting these cases from the output.
 Run "godoc" to access the following links.
 - [Cmd Package](http://localhost:6060/pkg/main/myWc/cmd/app)
 - [Internal Package Run](http://localhost:6060/pkg/main/myWc/internal/app/run)
-- [Internal Package Calculations](http://localhost:6060/pkg/main/myWc/internal/app/counter)
+- [Internal Package Counter](http://localhost:6060/pkg/main/myWc/internal/app/counter)
 
 The utility presented here mirrors the functionality of the `wc` command.
 
@@ -102,7 +102,7 @@ will calculate line counts for all ".log" files in the /path/to/some/logs direct
 Run "godoc" to access the following links.
 - [Cmd Package](http://localhost:6060/pkg/main/myRotate/cmd/app)
 - [Internal Package Run](http://localhost:6060/pkg/main/myRotate/internal/app/run)
-- [Internal Package Calculations](http://localhost:6060/pkg/main/myRotate/internal/app/archiver)
+- [Internal Package Archiver](http://localhost:6060/pkg/main/myRotate/internal/app/archiver)
 
 The most recent addition to the tools is the log rotation utility.
 
