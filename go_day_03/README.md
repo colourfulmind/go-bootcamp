@@ -46,7 +46,7 @@ providing functionality to retrieve a list of entries and paginate through them.
 
 The HTTP application is hosted on port 8888,
 responding with a list of restaurants and offering simple pagination.
-For example, querying "http://127.0.0.1:8888/?page=5" yields a page structure like the following:
+For example, querying "http://127.0.0.1:8888/places?page=5" yields a page structure like the following:
 
 ```html
 <!doctype html>
