@@ -4,6 +4,7 @@ import (
 	"errors"
 	"fmt"
 	"html/template"
+	"main/internal/app/db"
 	"main/internal/app/esclient"
 	"net/http"
 	"strconv"
@@ -45,7 +46,7 @@ func GetPageNumber(r *http.Request) (int, error) {
 // CreateDB creates a database containing up to 10 restaurants depending on the current page
 func (server *APIServer) CreateDB(w http.ResponseWriter, r *http.Request) ([]esclient.Place, int, int) {
 	page, err := GetPageNumber(r)
-	if err == nil && page >= minPage && page <= maxPage {
+	if err == nil && page >= minPage && page <= db.GetCounts()/10+1 {
 		places, counts, err := server.Store.Service.GetPlaces(page*10+1, page*10-9)
 		if err != nil {
 			ResponseError(w, err)

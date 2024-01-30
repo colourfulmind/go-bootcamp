@@ -1,15 +1,12 @@
 package server
 
 import (
-	"main/internal/app/db"
 	"main/internal/app/esclient"
 )
 
 const (
 	minPage = 1
 )
-
-var maxPage = db.GetCounts()/10 + 1
 
 // Config is a struct used to store a port
 type Config struct {

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"main/internal/app/db"
 	"net/http"
 )
 
@@ -12,7 +13,7 @@ func (server *APIServer) GetJsonHandler() http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		if r.Method == http.MethodGet {
 			places, counts, page := server.CreateDB(w, r)
-			if page >= minPage && page <= maxPage {
+			if page >= minPage && page <= db.GetCounts()/10+1 {
 				data := NewJsonResponse(places, counts)
 				data.FillPages(page)
 				err := data.GetJson(w)
@@ -28,7 +29,7 @@ func (server *APIServer) GetJsonHandler() http.HandlerFunc {
 
 // FillPages calculates the values for previous, next, and last pages
 func (data *JsonResponse) FillPages(page int) {
-	maxPage := maxPage
+	maxPage := db.GetCounts()/10 + 1
 	if page > minPage {
 		data.PrevPage = page - 1
 	}
