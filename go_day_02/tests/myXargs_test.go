@@ -20,18 +20,18 @@ func TestXargs(t *testing.T) {
 			args:     []string{"-f", "-ext", "'txt'"},
 			xargs:    []string{"../myWc", "-l"},
 			filePath: "files",
-			expected: "6 tests/files/file1.txt\n" +
-				"19 tests/files/file2.txt\n" +
-				"8 tests/files/file3.txt\n",
+			expected: "6 50/files/file1.txt\n" +
+				"19 50/files/file2.txt\n" +
+				"8 50/files/file3.txt\n",
 		},
 		{
 			name:     "test2",
 			filePath: "dirs",
-			expected: "0 tests/dirs/dir1/file1.txt\n" +
-				"0 tests/dirs/dir1/file2.txt\n" +
-				"0 tests/dirs/dir2/dir1/file1.txt\n" +
-				"0 tests/dirs/dir3/file1.txt\n" +
-				"0 tests/dirs/dir3/file2.txt\n",
+			expected: "0 50/dirs/dir1/file1.txt\n" +
+				"0 50/dirs/dir1/file2.txt\n" +
+				"0 50/dirs/dir2/dir1/file1.txt\n" +
+				"0 50/dirs/dir3/file1.txt\n" +
+				"0 50/dirs/dir3/file2.txt\n",
 		},
 	}
 	for _, tt := range tests {

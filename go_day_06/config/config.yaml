@@ -1,0 +1,21 @@
+env: "local"
+storage_path: "./storage/sso.db"
+token_ttl: 1h
+grpc:
+  host: ""
+  port: 8888
+  timeout: 3s
+clients:
+  grpc_client:
+    host: "localhost"
+    port: 8888
+    retries_count: 5
+    timeout: 3s
+    insecure: true
+postgres:
+  host: "localhost"
+  port: 5432
+  user: "postgres"
+  password: "postgres"
+  db_name: "postgres"
+  ssl_mode: "disable"

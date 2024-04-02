@@ -21,9 +21,9 @@ func TestCompareFS(t *testing.T) {
 			name:    "test1",
 			FlagOld: "--old",
 			FlagNew: "--new",
-			Old:     "./tests/database/snapshot1.txt",
-			New:     "./tests/database/snapshot2.txt",
-			result:  "./tests/database/compareFS.txt",
+			Old:     "./50/database/snapshot1.txt",
+			New:     "./50/database/snapshot2.txt",
+			result:  "./50/database/compareFS.txt",
 		},
 	}
 	for _, tt := range tests {

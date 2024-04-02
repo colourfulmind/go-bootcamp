@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package pkg;
+
+option go_package = "blog.v1;blog";
+
+import "google/protobuf/empty.proto";
+
+service Auth {
+  rpc RegisterNewUser (RegisterRequest) returns (RegisterResponse);
+  rpc Login (LoginRequest) returns (LoginResponse);
+  rpc IsAdmin (IsAdminRequest) returns (IsAdminResponse);
+}
+
+message RegisterRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message RegisterResponse {
+  int64 user_id = 1;
+}
+
+message LoginRequest {
+  string email = 1;
+  string password = 2;
+}
+
+message LoginResponse {
+  string token = 1;
+}
+
+message IsAdminRequest {
+  int64 user_id = 1;
+}
+
+message IsAdminResponse {
+  bool is_admin = 1;
+}
+
+service Articles {
+  rpc CreateArticle(ArticleData) returns (ArticleId);
+  rpc ShowMyArticle(ArticleId) returns (ArticleData);
+  rpc ShowAllMyArticles(ArticlesRequest) returns(ArticlesResponse);
+  rpc ShowAllArticles(google.protobuf.Empty) returns(ArticlesResponse);
+}
+
+message ArticleData {
+  string title = 1;
+  string text = 2;
+  int64 author = 3;
+}
+
+message ArticleId {
+  int64 id = 1;
+}
+
+message ArticlesResponse {
+  repeated int64 id = 1;
+  repeated string titles = 2;
+  repeated string texts = 3;
+}
+
+message ArticlesRequest {
+  int64 id = 1;
+}

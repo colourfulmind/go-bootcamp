@@ -21,9 +21,9 @@ func TestCompareDB(t *testing.T) {
 			name:    "test1",
 			FlagOld: "--old",
 			FlagNew: "--new",
-			Old:     "./tests/database/original_database.xml",
-			New:     "./tests/database/original_database.json",
-			result:  "./tests/database/compareDB.txt",
+			Old:     "./50/database/original_database.xml",
+			New:     "./50/database/original_database.json",
+			result:  "./50/database/compareDB.txt",
 		},
 	}
 	for _, tt := range tests {

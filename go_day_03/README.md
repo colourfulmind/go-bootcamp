@@ -105,7 +105,7 @@ For example, when accessing http://127.0.0.1:8888/api/places?page=11, the respon
     {
       "id": 100,
       "name": "Bil'jardnyj Bar-klub Polkovnik i Bajron",
-      "address": "gorod Moskva, prospekt Budennogo, dom 1/1",
+      "address": "gorod Moskva, prospekt Budennogo, dom ",
       "phone": "(495) 365-22-24",
       "location": {
         "lon": 37.721607349974896,

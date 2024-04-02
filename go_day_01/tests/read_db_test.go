@@ -18,14 +18,14 @@ func TestReadDB(t *testing.T) {
 		{
 			name:     "test1",
 			flag:     "-f",
-			FileName: "./tests/database/original_database.xml",
-			result:   "./tests/database/original_database.json",
+			FileName: "./50/database/original_database.xml",
+			result:   "./50/database/original_database.json",
 		},
 		{
 			name:     "test2",
 			flag:     "-f",
-			FileName: "./tests/database/stolen_database.json",
-			result:   "./tests/database/stolen_database.xml",
+			FileName: "./50/database/stolen_database.json",
+			result:   "./50/database/stolen_database.xml",
 		},
 	}
 	for _, tt := range tests {
