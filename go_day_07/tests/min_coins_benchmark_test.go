@@ -1,7 +1,7 @@
 package tests
 
 import (
-	"benching/internal/coins"
+	"coins/internal/coins"
 	"math/rand"
 	"testing"
 	"time"

@@ -1,4 +1,4 @@
-module main
+module coins
 
 go 1.21.3
 
