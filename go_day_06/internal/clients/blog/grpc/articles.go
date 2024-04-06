@@ -1,7 +1,7 @@
 package grpcclient
 
 import (
-	"articles/internal/code"
+	"articles/internal/ewrap"
 	"articles/pkg/logger/sl"
 	blog "articles/protos/gen/go/articles"
 	"context"
@@ -71,9 +71,9 @@ func (c *Client) CreateArticle() http.HandlerFunc {
 			})
 
 			if err != nil {
-				if errors.Is(err, code.TitleIsRequired) || errors.Is(err, code.TextIsRequired) {
+				if errors.Is(err, ewrap.TitleIsRequired) || errors.Is(err, ewrap.TextIsRequired) {
 					c.Log.Warn("title or text is required", op, sl.Err(err))
-				} else if errors.Is(err, code.ArticleAlreadyExists) {
+				} else if errors.Is(err, ewrap.ArticleAlreadyExists) {
 					c.Log.Warn("article already exists", op, sl.Err(err))
 				} else {
 					c.Log.Error("failed to create new article", err)
@@ -110,9 +110,9 @@ func (c *Client) ShowMyArticle() http.HandlerFunc {
 			})
 
 			if err != nil {
-				if errors.Is(err, code.ArticleIDIsRequired) {
+				if errors.Is(err, ewrap.ArticleIDIsRequired) {
 					c.Log.Warn("failed to get article id", op, sl.Err(err))
-				} else if errors.Is(err, code.ArticleNotFound) {
+				} else if errors.Is(err, ewrap.ArticleNotFound) {
 					c.Log.Warn("article not found", op, sl.Err(err))
 				} else {
 					c.Log.Error("failed to get article", err)

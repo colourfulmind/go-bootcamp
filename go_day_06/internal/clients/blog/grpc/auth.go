@@ -1,7 +1,7 @@
 package grpcclient
 
 import (
-	"articles/internal/code"
+	"articles/internal/ewrap"
 	"articles/pkg/logger/sl"
 	blog "articles/protos/gen/go/articles"
 	"context"
@@ -41,9 +41,9 @@ func (c *Client) RegisterNewUser() http.HandlerFunc {
 			})
 
 			if err != nil {
-				if errors.Is(err, code.EmailIsRequired) || errors.Is(err, code.PasswordIsRequired) {
+				if errors.Is(err, ewrap.EmailIsRequired) || errors.Is(err, ewrap.PasswordIsRequired) {
 					c.Log.Warn("email or password is required", op, sl.Err(err))
-				} else if errors.Is(err, code.UserAlreadyExists) {
+				} else if errors.Is(err, ewrap.UserAlreadyExists) {
 					c.Log.Warn("user already exists", op, sl.Err(err))
 				} else {
 					c.Log.Warn("failed to register new user", err)
@@ -86,9 +86,9 @@ func (c *Client) Login() http.HandlerFunc {
 				})
 
 				if err != nil {
-					if errors.Is(err, code.EmailIsRequired) || errors.Is(err, code.PasswordIsRequired) {
+					if errors.Is(err, ewrap.EmailIsRequired) || errors.Is(err, ewrap.PasswordIsRequired) {
 						c.Log.Warn("email or password is required", op, sl.Err(err))
-					} else if errors.Is(err, code.InvalidEmailOrPassword) {
+					} else if errors.Is(err, ewrap.InvalidEmailOrPassword) {
 						c.Log.Warn("invalid email or password", op, sl.Err(err))
 					} else {
 						c.Log.Error("failed to login user", err)
@@ -149,12 +149,12 @@ func (c *Client) IsAdmin() http.HandlerFunc {
 			})
 
 			if err != nil {
-				if errors.Is(err, code.UserIDIsRequired) {
+				if errors.Is(err, ewrap.UserIDIsRequired) {
 					c.Log.Warn("couldn't get user id")
 					return
 				}
 
-				if errors.Is(err, code.UserNotFound) {
+				if errors.Is(err, ewrap.UserNotFound) {
 					c.Log.Warn("user not found", op, sl.Err(err))
 					return
 				}

@@ -5,5 +5,5 @@
     godoc
 ```
 
-#### Click the link [Min_Coins](http://localhost:6060/pkg/main/internal/coins/) - docs for coins package.
+#### Click the link [Min_Coins](http://localhost:6060/pkg/coins/internal/coins/) - docs for coins package.
 

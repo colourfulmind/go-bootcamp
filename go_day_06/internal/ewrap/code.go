@@ -1,4 +1,4 @@
-package code
+package ewrap
 
 import (
 	"google.golang.org/grpc/codes"
@@ -9,7 +9,7 @@ var (
 	UserAlreadyExists      = status.Error(codes.AlreadyExists, "user already exists")
 	UserNotFound           = status.Error(codes.NotFound, "user not found")
 	UserIDIsRequired       = status.Error(codes.InvalidArgument, "user_id is requires")
-	EmailIsRequired        = status.Error(codes.InvalidArgument, "email iis required")
+	EmailIsRequired        = status.Error(codes.InvalidArgument, "email is required")
 	PasswordIsRequired     = status.Error(codes.InvalidArgument, "password is required")
 	InvalidEmailOrPassword = status.Error(codes.InvalidArgument, "invalid email or password")
 	InternalError          = status.Error(codes.Internal, "internal error")

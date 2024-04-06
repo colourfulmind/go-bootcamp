@@ -1,8 +1,8 @@
 package articles
 
 import (
-	"articles/internal/code"
 	"articles/internal/domain/models"
+	"articles/internal/ewrap"
 	"articles/internal/grpc/auth"
 	"articles/internal/services/articles"
 	"articles/protos/gen/go/articles"
@@ -36,9 +36,9 @@ func (s *ServerArticle) CreateArticle(ctx context.Context, req *blog.ArticleData
 	id, err := s.articles.CreateArticle(ctx, req.Title, req.Text, req.Author)
 	if err != nil {
 		if errors.Is(err, articles.ErrArticleExists) {
-			return nil, code.ArticleAlreadyExists
+			return nil, ewrap.ArticleAlreadyExists
 		}
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return &blog.ArticleId{
@@ -48,11 +48,11 @@ func (s *ServerArticle) CreateArticle(ctx context.Context, req *blog.ArticleData
 
 func ValidateArticle(req *blog.ArticleData) error {
 	if req.GetTitle() == "" {
-		return code.TitleIsRequired
+		return ewrap.TitleIsRequired
 	}
 
 	if req.GetText() == "" {
-		return code.TextIsRequired
+		return ewrap.TextIsRequired
 	}
 
 	return nil
@@ -66,9 +66,9 @@ func (s *ServerArticle) ShowMyArticle(ctx context.Context, req *blog.ArticleId) 
 	title, text, id, err := s.articles.GetArticle(ctx, req.GetId())
 	if err != nil {
 		if errors.Is(err, articles.ErrArticleNotFound) {
-			return nil, code.ArticleNotFound
+			return nil, ewrap.ArticleNotFound
 		}
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return &blog.ArticleData{
@@ -80,7 +80,7 @@ func (s *ServerArticle) ShowMyArticle(ctx context.Context, req *blog.ArticleId) 
 
 func ValidateId(req *blog.ArticleId) error {
 	if req.GetId() == auth.EmptyValue {
-		return code.ArticleIDIsRequired
+		return ewrap.ArticleIDIsRequired
 	}
 
 	return nil
@@ -89,7 +89,7 @@ func ValidateId(req *blog.ArticleId) error {
 func (s *ServerArticle) ShowAllMyArticles(ctx context.Context, req *blog.ArticlesRequest) (*blog.ArticlesResponse, error) {
 	resp, err := s.articles.ShowAllMyArticles(ctx, req.GetId())
 	if err != nil {
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return s.ReturnResponse(resp), nil
@@ -98,7 +98,7 @@ func (s *ServerArticle) ShowAllMyArticles(ctx context.Context, req *blog.Article
 func (s *ServerArticle) ShowAllArticles(ctx context.Context, _ *emptypb.Empty) (*blog.ArticlesResponse, error) {
 	resp, err := s.articles.ShowAllArticles(ctx)
 	if err != nil {
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return s.ReturnResponse(resp), nil

@@ -1,7 +1,7 @@
 package auth
 
 import (
-	"articles/internal/code"
+	"articles/internal/ewrap"
 	"articles/internal/services/auth"
 	"articles/internal/storage"
 	"articles/protos/gen/go/articles"
@@ -35,9 +35,9 @@ func (s *ServerAuth) RegisterNewUser(ctx context.Context, req *blog.RegisterRequ
 	userID, err := s.auth.RegisterNewUser(ctx, req.GetEmail(), req.GetPassword())
 	if err != nil {
 		if errors.Is(err, auth.ErrUserExists) {
-			return nil, code.UserAlreadyExists
+			return nil, ewrap.UserAlreadyExists
 		}
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return &blog.RegisterResponse{
@@ -47,10 +47,10 @@ func (s *ServerAuth) RegisterNewUser(ctx context.Context, req *blog.RegisterRequ
 
 func ValidateRegister(req *blog.RegisterRequest) error {
 	if req.GetEmail() == "" {
-		return code.EmailIsRequired
+		return ewrap.EmailIsRequired
 	}
 	if req.GetPassword() == "" {
-		return code.PasswordIsRequired
+		return ewrap.PasswordIsRequired
 	}
 
 	return nil
@@ -64,9 +64,9 @@ func (s *ServerAuth) Login(ctx context.Context, req *blog.LoginRequest) (*blog.L
 	token, err := s.auth.Login(ctx, req.GetEmail(), req.GetPassword())
 	if err != nil {
 		if errors.Is(err, auth.ErrInvalidCredentials) {
-			return nil, code.InvalidEmailOrPassword
+			return nil, ewrap.InvalidEmailOrPassword
 		}
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return &blog.LoginResponse{
@@ -76,11 +76,11 @@ func (s *ServerAuth) Login(ctx context.Context, req *blog.LoginRequest) (*blog.L
 
 func ValidateLogin(req *blog.LoginRequest) error {
 	if req.GetEmail() == "" {
-		return code.EmailIsRequired
+		return ewrap.EmailIsRequired
 	}
 
 	if req.GetPassword() == "" {
-		return code.PasswordIsRequired
+		return ewrap.PasswordIsRequired
 	}
 
 	return nil
@@ -94,9 +94,9 @@ func (s *ServerAuth) IsAdmin(ctx context.Context, req *blog.IsAdminRequest) (*bl
 	isAdmin, err := s.auth.IsAdmin(ctx, req.GetUserId())
 	if err != nil {
 		if errors.Is(err, storage.ErrUserNotFound) {
-			return nil, code.UserNotFound
+			return nil, ewrap.UserNotFound
 		}
-		return nil, code.InternalError
+		return nil, ewrap.InternalError
 	}
 
 	return &blog.IsAdminResponse{
@@ -106,7 +106,7 @@ func (s *ServerAuth) IsAdmin(ctx context.Context, req *blog.IsAdminRequest) (*bl
 
 func ValidateAdmin(req *blog.IsAdminRequest) error {
 	if req.GetUserId() == EmptyValue {
-		return code.UserIDIsRequired
+		return ewrap.UserIDIsRequired
 	}
 
 	return nil
